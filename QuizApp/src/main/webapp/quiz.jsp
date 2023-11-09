@@ -21,8 +21,8 @@
     <h1>Quiz</h1>
     <br>
     <h3>${requestScope.currentQuestion.title}</h3> <%-- get data from request --%>
-    <c:if test="${!requestScope.isAnswer}">
-        <p style="color: red">Please select option</p>
+    <c:if test="${requestScope.errormsg != null}">
+        <p style="color: red">${requestScope.errormsg}</p>
     </c:if>
     <form action="quiz-controller" method="post"> <%-- used to map a controller and select doGet or doPost --%>
         <c:forEach items="${requestScope.currentQuestion.options}" var="option" varStatus="vs"> <%-- loop a list of options --%>

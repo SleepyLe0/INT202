@@ -5,13 +5,14 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
 import sit.int202.classicmodelsfri.entities.Employee;
+import sit.int202.classicmodelsfri.entities.Environment;
 
 import java.util.Scanner;
 import java.util.List;
 
 public class TestQueryPagination {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(Environment.PU_NAME);
         EntityManager em = emf.createEntityManager();
         Query query = em.createNamedQuery("E.FIND_ALL");
         Scanner sc = new Scanner(System.in);

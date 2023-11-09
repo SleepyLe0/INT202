@@ -35,9 +35,11 @@ public class QuizController extends HttpServlet {
             int answer = Integer.parseInt(request.getParameter("option")); // store answer in answer variable
             quizSession.checkCorrectQuestion(answer); // check answer
             quizSession.moveToNextQuestion(); // move index of currentQuestion in quizSession
-            quizSession.answer();
+//            quizSession.answer();
         }else {
-            quizSession.notAnswer();
+            request.setAttribute("errormsg", "pls select option");
+            doGet(request, response);
+//            quizSession.notAnswer();
         }
         if (quizSession.isQuizEnded()) { // check isQuizEnded
             int score = quizSession.getCorrectAnswerCount(); // store score from quizSession

@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
+import sit.int202.classicmodelsfri.entities.Environment;
 import sit.int202.classicmodelsfri.entities.Office;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.Scanner;
 
 public class TestQueryParameter {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(Environment.PU_NAME);
         EntityManager em = emf.createEntityManager();
         Query query = em.createNamedQuery("OFFICE.FIND_BY_COUNTRY");
         Scanner sc = new Scanner(System.in);
@@ -28,5 +29,6 @@ public class TestQueryParameter {
             }
         }
         em.close();
+        emf.close();
     }
 }

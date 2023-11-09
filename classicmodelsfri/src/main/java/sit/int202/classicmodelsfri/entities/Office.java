@@ -13,8 +13,12 @@ import java.util.List;
 @Entity
 @Table(name = "Offices")
 @NamedQueries({
-        @NamedQuery(name = "OFFICE.FIND_ALL", query = "select o from Office o"),
-        @NamedQuery(name = "OFFICE.FIND_BY_COUNTRY", query = "select o from Office o where o.country like :countryParam")
+        @NamedQuery(name = "OFFICE.FIND_ALL",
+                query = "select o from Office o"),
+        @NamedQuery(name = "OFFICE.FIND_BY_COUNTRY",
+                query = "select o from Office o where o.country like :countryParam"),
+        @NamedQuery(name = "OFFICE.FIND_BY_CITY_OR_COUNTRY",
+                query = "select o from Office o where lower(o.city) like :city or lower(o.country) like :country")
 })
 public class Office {
     @Id

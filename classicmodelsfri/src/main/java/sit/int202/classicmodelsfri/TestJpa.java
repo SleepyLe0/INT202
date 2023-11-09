@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import sit.int202.classicmodelsfri.entities.Employee;
+import sit.int202.classicmodelsfri.entities.Environment;
 import sit.int202.classicmodelsfri.entities.Office;
 
 import java.util.Scanner;
@@ -11,7 +12,7 @@ import java.util.Scanner;
 public class TestJpa {
     public static void main(String[] args) {
         // Create Entity Manager Factory
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(Environment.PU_NAME);
         // Create Entity Manager
         EntityManager em = emf.createEntityManager();
 

@@ -4,13 +4,14 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
+import sit.int202.classicmodelsfri.entities.Environment;
 import sit.int202.classicmodelsfri.entities.Office;
 
 import java.util.List;
 
 public class TestQuery {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(Environment.PU_NAME);
         EntityManager em = emf.createEntityManager();
         Query query = em.createNamedQuery("OFFICE.FIND_ALL");
         List<Office> officeList = query.getResultList();

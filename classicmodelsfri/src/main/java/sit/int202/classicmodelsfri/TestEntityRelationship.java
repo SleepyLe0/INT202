@@ -4,13 +4,14 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import sit.int202.classicmodelsfri.entities.Employee;
+import sit.int202.classicmodelsfri.entities.Environment;
 import sit.int202.classicmodelsfri.entities.Office;
 
 import java.util.Scanner;
 
 public class TestEntityRelationship {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(Environment.PU_NAME);
         EntityManager em = emf.createEntityManager();
         Scanner sc = new Scanner(System.in);
         while (true) {
@@ -27,6 +28,7 @@ public class TestEntityRelationship {
             }
         }
         em.close();
+        emf.close();
     }
 
     private static void displayOfficeEmployee(Office office) {

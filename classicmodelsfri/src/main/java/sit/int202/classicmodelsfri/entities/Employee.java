@@ -11,8 +11,10 @@ import lombok.ToString;
 @Entity
 @Table(name = "Employees")
 @NamedQueries({
-        @NamedQuery(name = "E.FIND_ALL", query = "select e from Employee e"),
-        @NamedQuery(name = "E.FIND_BY_NAME", query = "select e from Employee e where e.firstName like :first_name or e.lastName like :last_name")
+        @NamedQuery(name = "E.FIND_ALL",
+                query = "select e from Employee e"),
+        @NamedQuery(name = "E.FIND_BY_NAME",
+                query = "select e from Employee e where e.firstName like :first_name or e.lastName like :last_name")
 })
 public class Employee {
     @Id
@@ -24,4 +26,7 @@ public class Employee {
     private String officeCode;
     private Integer reportsTo;
     private String jobTitle;
+    @ManyToOne
+    @JoinColumn(name = "officeCode", insertable = false, updatable = false)
+    private Office office;
 }
